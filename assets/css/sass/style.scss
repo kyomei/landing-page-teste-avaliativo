@@ -8,6 +8,9 @@ body {
    font-family: 'Lato', sans-serif;
 }
 
+.text-center {
+   text-align: center;
+}
 .d-none {
    display: none;
 }
@@ -31,89 +34,171 @@ body {
 .d-flex-column {
    flex-direction: column;
 }
+/* Colors */
+$primary: #fa004d;
 
 /* backgrounds colors */
 .bg-dark { background: #ddd; }
 .bg-danger { background: red;}
 .bg-primary { background:  blue;}
 
+/* Efeito Swing */
+@-webkit-keyframes swing
+{
+   15%
+   {
+      -webkit-transform: translateX(5px);
+      transform: translateX(5px);
+   }
+   30%
+   {
+      -webkit-transform: translateX(-5px);
+      transform: translateX(-5px);
+   } 
+   50%
+   {
+      -webkit-transform: translateX(3px);
+      transform: translateX(3px);
+   }
+   65%
+   {
+      -webkit-transform: translateX(-3px);
+      transform: translateX(-3px);
+   }
+   80%
+   {
+      -webkit-transform: translateX(2px);
+      transform: translateX(2px);
+   }
+   100%
+   {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+   }
+}
+@keyframes swing
+{
+   15%
+   {
+      -webkit-transform: translateX(5px);
+      transform: translateX(5px);
+   }
+   30%
+   {
+      -webkit-transform: translateX(-5px);
+      transform: translateX(-5px);
+   }
+   50%
+   {
+      -webkit-transform: translateX(3px);
+      transform: translateX(3px);
+   }
+   65%
+   {
+      -webkit-transform: translateX(-3px);
+      transform: translateX(-3px);
+   }
+   80%
+   {
+      -webkit-transform: translateX(2px);
+      transform: translateX(2px);
+   }
+   100%
+   {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+   }
+}
+
+.swing:hover
+{
+   -webkit-animation: swing 1s ease;
+   animation: swing 1s ease;
+   -webkit-animation-iteration-count: 1;
+   animation-iteration-count: 1;
+}
+
+
 /* For desktop */
-
-
 .container {
    width: 1000px;
    padding: 0px 10px;	
 }
-// Topo do site
-#header {
-   width: 100%;
+
+#topo {
    height: 625px;
-   flex-direction: column;
-   background-image: url('../../assets/images/header.jpg');
-   background-repeat: no-repeat;
    background-size: cover;
-   font-family: 'Lato', sans-serif;
+   background-repeat: no-repeat;
+   background-image: url('../../assets/images/header.jpg');
 
-   // Menu de navageção
-   #menu {
-      padding-top: 28px;
-      //background: #666;
+   nav {
+      display: flex;
+      justify-content: center;
 
-      .navbar-header {
-         display: none;
+      // Oculta menu mobile
+      .navbar-header, .fa-times {
+         display: none;         
       }
       // Estrutura do menu
       ul {
+         height: 70px;
+         line-height: 70px;
          margin: 0;
          padding: 0;
          display: flex;
          list-style: none;
          justify-content: center;
-      }
-      // Links do menu
-      li a {
-         margin: 0px 28px;
-         color: rgba(255, 255, 255, 0.8);
-         text-decoration: none;
-      }
+
+         // Links do menu
+         li a {
+            margin: 0px 28px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.4s;
+            transition-timing-function: ease-in;
+
+            &:hover {         
+               padding: 10px;
+               color: #fa004d;
+               font-weight: bold;
+               border-radius: 40px;
+               background-color: #FFF;
+            }
+         }
+
+      }      
    }
+
    // logo do site
    .logo {
-      padding-top: 55px;
+      padding-top: 51px;
       padding-bottom: 45px;
+   }	
+
+   .header-info {
+      color: white;
       display: flex;
       justify-content: center;
-      //background-color: #ccc;
-   }	
-   // Container das informações do header
-   .header-info {
-      display: flex;
-      flex-direction: column;
-      //background-color: red;
-      text-align: center;	
-      height: 340px;
-      color: white;
+
       h1 {
-         margin: 0px;
-         height: 70px;
+         height:80px;
          font-size: 50px;
          font-weight: 900;
       }
       p {
-         margin: 0px;
          height: 70px;
          font-size: 18px;
       }
+
       // Container dos botões do header
       .header-buttons {
+         height: 200px;
          display: flex;
          justify-content: center;
-         //background-color: purple;
-         height: 200px;
 
          // Configuração dos botões do header
          .btn {
-            margin: 40px 22px;
+            margin: 0px 25px;
             width: 210px;
             height: 65px;
             line-height: 65px;
@@ -128,36 +213,33 @@ body {
             box-sizing: border-box;
             background: transparent;
             border: 4px solid white;
+            transition: all 1s;
+
             &:hover {
                background-color: #fff;
                color: #fa004d;
             }
          }
       }
-
-   }	
+   }
 }
 
 // Carousel da pagina
 .carousel {
-   background-color: #FFF;
    padding: 50px 0;
+   display: flex;
+   flex-direction: column;
 
-   .carousel-container {
-      display: flex;
-      justify-content: center;
+   .carousel-item {
+      display: none;
+      max-width: 670px;
+      text-align: center;
 
-      .carousel-item {
-         width: 620px;
-         display: none;
-         text-align: center;
-
-         &:first-child {
-            display: block;
-         }
+      &:first-child {
+         display: block;
       }
+   }
 
-   }	
    // Controles de ação para alterar o item do carousel
    .carousel-controls {
       display: flex;
@@ -182,80 +264,92 @@ body {
 
 
 #contato {
-   background: #ddd;
+   background-color: #DDD;
+   height: 800px;
 
-   .contato-container {
+   // Coluna esquerda
+   .contato-left {
+      width: 50%;
+      padding: 60px 0px 0 0px;
+      justify-content: center;
       display: flex;
 
-      .contato-info {
-         width: 50%;
-         padding: 60px 0 60px 150px ;
+      h2 {
+         text-transform: uppercase;
+         color: #f39200;
+         font-size: 35px;
+         font-weight: normal;
+         margin-bottom: 55px;
+      }
+      // Form campos
+      input, select, textarea {
+         border: none;
+         color: #808080;
+         padding: 7px 12px;
+         font-size: 18px;
+         width: 433px;
+         background-color: transparent;
+         border-bottom: 2px solid #808080;
 
-         h2 {
-            text-transform: uppercase;
-            color: #f39200;
-            font-size: 35px;
-            font-weight: normal;
-            font-family: 'Lato', sans-serif;
-         }
-
-         input, select, textarea {
+         &:focus {
             border: none;
-            color: #808080;
-            padding: 12px;
-            font-size: 18px;
-            width: 433px;
-            border-bottom: 2px solid #808080;
+            outline: 0;
+            background-color: #FFF; 
+            border-bottom: 2px solid #f39200;
 
-            &:focus {
-               border: none;
-               outline: 0;
-               background-color: #F5F5F5; 
-               border-bottom: 2px solid #f39200;
-
-            }
-         }
-         textarea {
-            height: 180px;
-         }
-         input[type=submit] {
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            margin-top: 18px;
-            margin-bottom: 110px;
-            background-color: #fa004d;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 16px;
-            font-weight: bold;
-
-            &:hover {
-               background-color: #e00849;
-            }
          }
       }
-      .contato-img {
-         width: 50%;
-         background-size: cover;
-         background-image: url('../../assets/images/img-contato.jpg');
+      textarea {
+         height: 180px;
+      }
+      // Botão submit ENVIAR
+      input[type=submit] {
+         color: #fff;
+         border: none;
+         border-radius: 4px;
+         margin-top: 18px;
+         margin-bottom: 110px;
+         background-color: #fa004d;
+         cursor: pointer;
+         text-transform: uppercase;
+         font-size: 16px;
+         font-weight: bold;
+         padding: 10px 0;
+         transition: all 1s;
+
+         &:hover {
+            background-color: #e00849;
+         }
       }
    }
-
-}    
-
+   .contato-right {
+      width: 50%;
+      background-size: cover;
+      background-image: url("../../assets/images/img-contato.jpg");
+   }
+}
+// Rodape da pagina
 #footer {
    height: 185px;
    line-height: 185px;
    font-size: 18px;
    color: #808080;
 
+   .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+   p {
+      width: 100%;
+   }
    // Icons do rodape
    .icons-redes-sociais {
       height: 50px;         
 
       .icon-facebook {
          width: 56px;
+         transition: all 0.2s;
          background: url('../../assets/images/icons/redes-sociais-hover.png') 0 0;
 
          &:hover {               
@@ -264,6 +358,7 @@ body {
       }
       .icon-instagram {
          width: 56px;
+         transition: all 0.2s;
          background: url('../../assets/images/icons/redes-sociais-hover.png') -71px 0;
 
          &:hover {               
@@ -272,6 +367,7 @@ body {
       }
       .icon-youtube {
          width: 56px;
+         transition: all 0.2s;
          background: url('../../assets/images/icons/redes-sociais-hover.png') -140px 0;
 
          &:hover {               
@@ -281,185 +377,224 @@ body {
    }
 }
 
-
-
-.container-flex {
-   display: flex;
-   max-width: 1000px;
-   padding: 0px 10px;	
-}
-   
-
-// Topo do site
-#header-teste {
-   
-   width: 100%;
-   height: 625px;
-   background-image: url('../../assets/images/header.jpg');
-   background-repeat: no-repeat;
-   background-size: cover;
-   font-family: 'Lato', sans-serif;
-
-   // Menu de navageção
-   #navbar {
-      padding-top: 28px;
-      background: #666;
-
-      .navbar-header {
-         display: none;
-      }
-      // Estrutura do menu
-      ul {
-         margin: 0;
-         padding: 0;
-         display: flex;
-         list-style: none;
-         justify-content: center;
-      }
-      // Links do menu
-      li a {
-         margin: 0px 28px;
-         color: rgba(255, 255, 255, 0.8);
-         text-decoration: none;
-      }
+/* For Tablet */
+@media only screen and (max-width: 920px)  {
+   .container {
+      width: 574px;
+      padding: 0px 10px;	
    }
-   // logo do site
-   .logo {
-      padding-top: 55px;
-      padding-bottom: 45px;
-      display: flex;
-      justify-content: center;
-      //background-color: #ccc;
-   }	
-   // Container das informações do header
-   .header-info {
-      display: flex;
-      flex-direction: column;
-      //background-color: red;
-      text-align: center;	
-      height: 340px;
-      color: white;
-      h1 {
-         margin: 0px;
-         height: 70px;
-         font-size: 50px;
-         font-weight: 900;
-      }
-      p {
-         margin: 0px;
-         height: 70px;
-         font-size: 18px;
-      }
-      // Container dos botões do header
-      .header-buttons {
-         display: flex;
-         justify-content: center;
-         //background-color: purple;
-         height: 200px;
+   #contato {
+      height: 620px;
+      // padding: 20px 0;
 
-         // Configuração dos botões do header
-         .btn {
-            margin: 40px 22px;
-            width: 210px;
-            height: 65px;
-            line-height: 65px;
-            color: #fa004d;
-            font-weight: 900;
-            text-decoration: none;
-            background-color: rgba(255, 255, 255, 0.5);
+      .contato-left {
+         width: 100%;
+         padding: 30px 50px 0 50px;
+         display: block;
+         justify-content: center;
+         background-size: cover;
+         background-image: url("../../assets/images/img-contato.jpg");
+
+         h2 {
+            margin-bottom: 35px;
          }
-         // Configuração do botão com border do header
-         .btn-outline {
-            color: white;
-            box-sizing: border-box;
-            background: transparent;
-            border: 4px solid white;
-            &:hover {
-               background-color: #fff;
-               color: #fa004d;
+         input, select, textarea {
+
+            width: 100%;
+
+            &:focus {
+               background-color: transparent;
+               color: #FFF;
+
             }
          }
+         textarea {
+            height: 125px;
+         }
+         form {
+            padding: 20px;
+            height: 490px;
+            background-color: rgba(0, 0, 0, 0.8);
+
+         }
       }
-
-   }	
+      .contato-right {
+         display: none;
+      }
+   }
 }
-
-
-/* For Tablet */
-@media only screen and (max-width: 768px)  {
-
-   #footer {
-
+/* For small device */
+@media only screen and (max-width: 574px) {
+   .container {
+      max-width: 574px;
+      padding: 0px 10px;	
    }
 
-}
-
-/* For small device */
-@media only screen and (max-width: 480px) {
-
-   #header-teste {
-      #menu {
-         padding: 0;
-
+   #topo {
+      nav {
+         justify-content: flex-start;
+         .container {
+            padding: 0;
+         }
+         // Exibe menu mobile
          .navbar-header {
             display: flex;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.9);
-            font-weight: 700;
-            text-transform: uppercase;
-            position: fixed;
-            width: 100%;
+            position: fixed;         
+            width: 100%;   
+            align-items: stretch;
+            padding: 10px 10px;
+            //height: 50px;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.8);
 
             a {
                text-decoration: none;
-               color: #fa004d;
-               line-height: 50px; 
-               margin-left: 6px;
+               color: $primary;
+               font-weight: bold;
             }
-
+            // Botão menu mobile
             .navbar-toggle {
-               margin: 6px 6px 0 0;
-               height: 37px;
-               font-weight: 700;
-               font-size: 12px;
                color: #222222;
-               padding: 9px 10px;
-               border-radius: 4px;
+               padding: 5px;
+               border-radius: 2px;
                border: none;
                outline: 0;
+               font-weight: 700;
+               background-color: #FFF;
+               color: $primary;
                text-transform: uppercase;
-               border-bottom: 4px solid #222222;
+               transition: all 0.5s;
+               cursor: pointer;
+
             }
+
+         }
+         // Icone fechar menu mobile
+         .fa-times {
+            color: white;
+            font-size: 24px;
+            display: block;
+            text-align: right;
+            padding-right: 20px;
+            cursor: pointer;
          }
          ul {
+            height: 100vh;
+            //width: 235px;
+            width: 0;
             display: none;
+            padding-top: 20px;
+            line-height: 45px;
+            position: fixed;
+            flex-direction: column;
+            justify-content: flex-start;
+            background-color: rgba(0, 0, 0, 0.9);
+
+            // Links do menu
+            li  {
+               &:hover { 
+                  padding: 2px;
+                  border-radius: 0px;
+                  background-color: #FFF;
+                  
+                  // Ao passar mouve no li tag a muda cor
+                  a {
+                     color: #000;
+                  }
+               }
+            }
+            li a {
+               &:hover {
+                  color: $primary;
+                  background-color: transparent;
+               }
+            }
+
          }
       }
-
-
+      // Logo mobile
+      .logo {
+         padding-top: 70px;
+         padding-bottom: 30px; 
+      }
+      
       .header-info {
+         color: white;
+
          h1 {
-            height: 55px;
-            font-size: 30px;
+            height: 60px;
+            font-size: 35px;
+            font-weight: 400;
          }
          p {
-            margin: 0px;
-            height: 70px;
             font-size: 16px;
          }
-
          .header-buttons {
-
+            display: flex;
             flex-direction: column;
-            
+            justify-content: flex-start;
+
             .btn {
-               margin: 5px 22px;
-               width: 100%;
+               width: auto;
+               margin-top: 5px;
             }
          }
       }
+   }
 
-   } 
+   #contato {
+      height: 620px;
+      // padding: 20px 0;
 
+      .contato-left {
+         width: 100%;
+         padding: 30px 0 0 0;
+         display: block;
+         justify-content: center;
+         background-size: cover;
+         background-image: url("../../assets/images/img-contato.jpg");
 
+         h2 {
+            margin-bottom: 35px;
+         }
+         input, select, textarea {
+
+            width: 100%;
+
+            &:focus {
+               background-color: transparent;
+               color: #FFF;
+
+            }
+         }
+         textarea {
+            height: 125px;
+         }
+         form {
+            padding: 20px;
+            height: 490px;
+            background-color: rgba(0, 0, 0, 0.8);
+
+         }
+      }
+      .contato-right {
+         display: none;
+      }
+   }
+   #footer {
+      height: 140px;
+      line-height: 40px;
+
+      .container {
+         display: flex;
+         justify-content: center;
+         text-align: center;
+         flex-direction: column-reverse;
+      }
+      p {
+         font-size: 13px;
+      }
+   }
 }
+
+
