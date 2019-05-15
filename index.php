@@ -50,37 +50,32 @@
       <!-- Start .\ Carousel -->
       <section class="carousel">
          <div class="d-flex-center">
-            <div class="carousel-item">
+            <div data-slide="0" class="carousel-item">
                <p>
                   1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                </p>
             </div>
-            <div class="carousel-item">
-               <p>
-                  1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-               </p>
-            </div>
-            <div class="carousel-item">
+            <div data-slide="1" class="carousel-item active">
                <p>
                   2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                </p>
             </div>
-            <div class="carousel-item">
+            <div data-slide="2" class="carousel-item">
                <p>
                   3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                </p>
             </div>
-            <div class="carousel-item">
+            <div data-slide="3" class="carousel-item">
                <p>
                   4 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                </p>
             </div>
          </div>
          <div class="carousel-controls">
-            <div class="controls-item"></div>
-            <div class="controls-item active"></div>
-            <div class="controls-item"></div>
-            <div class="controls-item"></div>      
+            <div data-slide-to="0" class="controls-item"></div>
+            <div data-slide-to="1" class="controls-item active"></div>
+            <div data-slide-to="2" class="controls-item"></div>
+            <div data-slide-to="3" class="controls-item"></div>      
          </div>
       </section>
       <!-- End .\ Carousel -->

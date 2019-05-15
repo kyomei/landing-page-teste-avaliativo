@@ -14,6 +14,9 @@ body {
 .d-none {
    display: none;
 }
+.d-block {
+   display: block;
+}
 /* Flexbox */
 .d-flex {
    display: flex;
@@ -233,13 +236,11 @@ $primary: #fa004d;
    .carousel-item {
       display: none;
       max-width: 670px;
-      text-align: center;
-
-      &:first-child {
-         display: block;
-      }
+      text-align: center;      
    }
-
+   .carousel-item.active {
+      display: block;
+   }
    // Controles de ação para alterar o item do carousel
    .carousel-controls {
       display: flex;
@@ -496,7 +497,7 @@ $primary: #fa004d;
                   padding: 2px;
                   border-radius: 0px;
                   background-color: #FFF;
-                  
+
                   // Ao passar mouve no li tag a muda cor
                   a {
                      color: #000;
@@ -517,7 +518,7 @@ $primary: #fa004d;
          padding-top: 70px;
          padding-bottom: 30px; 
       }
-      
+
       .header-info {
          color: white;
 
