@@ -1,3 +1,9 @@
+<?php
+   date_default_timezone_set('UTC');
+   require_once 'classes/Assunto.class.php';
+   $a = new Assunto();
+   $assuntos = $a->findAll();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
@@ -91,10 +97,9 @@
                   <input type="tel" name="telefone" placeholder="Telefone" required="required"><br /><br />
                   <input type="email" name="email" placeholder="E-mail" required="required"><br /><br />
                   <select name="assunto">
-                     <option>Assunto 1</option>
-                     <option>Assunto 2</option>
-                     <option>Assunto 3</option>
-                     <option>Assunto 4</option>
+                     <?php foreach($assuntos as $row): ?>
+                        <option><?php echo $row->assunto?></option>
+                     <?php endforeach; ?>
                   </select><br /><br />
                   <textarea name="mensagem" placeholder="Mensagem" row="8" col="15"></textarea><br /><br />
                   <input type="submit" value="Enviar" />
@@ -121,7 +126,7 @@
          </div>
       </footer>
       <!-- End .\ Footer -->
-      
+
       <!-- scripts -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
